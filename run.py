@@ -22,9 +22,9 @@ def update_survey_sheet(values):
     os = input("Please input corresponding number: \n")
     
     if os == "1":
-        print("Android")
+        SHEET.worksheet("android").append_row(values)
     elif os == "2":
-        print("iOS")
+        SHEET.worksheet("android").append_row(values)
     else:
         raise ValueError(
             "Not a valid input"
