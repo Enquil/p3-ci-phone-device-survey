@@ -21,13 +21,15 @@ def update_survey_sheet(values):
     
     os = input("Please input corresponding number: \n")
     
-    try:
-        if os == "1":
-            print("Android")
-        elif os == "2":
-            print("iOS")
-    except ValueError as e:
-            print(f"\n {e} is not a valid option")
+    if os == "1":
+        print("Android")
+    elif os == "2":
+        print("iOS")
+    else:
+        raise ValueError(
+            "Not a valid input"
+            "\nInput 1 for Android or 2 for iOS"
+        )
     update_survey_sheet(values)
             
     
