@@ -24,11 +24,10 @@ def validate_data(values):
     formatted
     """
 
-    required_values = 7
+    required_values = 5
     try:
         for value in values:
-
-            # Check that all values provided are between min and max values.
+            
             if int(value) >= 1 and int(value) <= 10:
                 continue
             else:
@@ -44,13 +43,16 @@ def android_capture():
     """
     Captures android device survey data
     """
-    print("Please enter survey data as follows: 10,10,10,10,10,1/0,1/0\n"
+    print("Please enter survey data as follows: 10,10,10,10,10\n"
                 "(Overall) (Design) (Ease of use) (Camera) (Battery) (Same device brands) (Would switch)\n"
                 "\n(Same device brands) and (Would switch) 'booleans' are represented as 1 or 0 depending if yes or no")
     survey_str = input("Please input survey data values, "
                     "then press enter: \n")
     survey_data = survey_str.split(",")
-    
+    if len(survey_data) != 6:
+            raise ValueError(
+                f" 5 values required, you provided {len(values)}"
+            )
     validate_data(survey_data)   
 
 #def select_comparison():
