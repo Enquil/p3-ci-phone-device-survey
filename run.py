@@ -14,33 +14,34 @@ SHEET = GSPREAD_CLIENT.open("phonedevice_survey_sheet")
 
 
 def update_survey_sheet(values):
-    print(values)
+
     print("Select Phone Operating System:\n"
           "1. Android\n"
           "2. iOS")
-    
-    os = input("Please input corresponding number: \n")
-    
-    if os == "1":
-        SHEET.worksheet("android").append_row(values)
-    elif os == "2":
-        SHEET.worksheet("android").append_row(values)
+
+    operating_system = input("Please input corresponding number: \n")
+
+    if operating_system == "1":
+        sheet = SHEET.worksheet("android")
+        sheet.append_row(values)
+    elif operating_system == "2":
+        sheet = SHEET.worksheet("iphone")
+        sheet.append_row(values)
     else:
         raise ValueError(
             "Not a valid input"
             "\nInput 1 for Android or 2 for iOS"
         )
     update_survey_sheet(values)
-            
-    
-        
+
+
+
 def validate_data(values):
     """
     Convert survey onput to integerss
     and validate wether input was correctly
     formatted
     """
-    
     try:
         for value in values:
             
@@ -53,6 +54,8 @@ def validate_data(values):
     except ValueError as e:
             print(f"\n {e} is not a number")    
             survey_capture()
+
+    values = [int(value) for value in values]
     update_survey_sheet(values)
 
 
@@ -61,23 +64,23 @@ def survey_capture():
     Captures android device survey data
     """
     print("Please enter survey data as follows: 10,10,10,10,10\n"
-                "(Overall) (Design) (Ease of use) (Camera) (Battery)\n"
+                "(Battery) (Camera) (Design) (Ease of Use) (Overall)\n"
                 "\n Input values must be number between 1 and 10")
     survey_str = input("Please input survey data, "
                     "then press enter: \n")
     survey_data = survey_str.split(",")
-        
+
     if len(survey_data) != 5:
         print(
             f" 5 values required, you provided {len(survey_data)}"
         )
         survey_capture()
-    else:          
-        validate_data(survey_data)   
+    else:
+        validate_data(survey_data)
 
-#def select_comparison():         
+#def select_comparison():        
 
-       
+
 def select_function():
     """
     Let user select an action
