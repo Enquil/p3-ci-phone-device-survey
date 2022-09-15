@@ -13,42 +13,31 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("phonedevice_survey_sheet")
 
 
-def ask_os():
-    """
-    ask for operating system of customers phone
-    """
-    print("\n Please choose customer os:\n"
-            "\n 1. Android\n"
-            " 2. iOS")
-    action = input("Please input desired action, "
-                    "then press enter: \n")    
-    if action == "1":
-        android_capture()
-    elif action == "2":
-        print("goodbye")
-
 def update_survey_sheet():
-    print("updating sheet")
+    print("\n updating sheet")
     
         
 def validate_data(values):
     """
-    converts survey onput to ints
-    and validates wether input was correctly
+    Convert survey onput to integerss
+    and validate wether input was correctly
     formatted
     """
+
+    required_values = 7
     try:
-        [int(value) for value in values]
-        print(values)
-        if len(values) != 7:
-            raise ValueError (
-                f"\n7 values required, you provided {len(values)}"
-            )
+        for value in values:
+
+            # Check that all values provided are between min and max values.
+            if int(value) >= 1 and int(value) <= 10:
+                continue
+            else:
+                raise ValueError(
+                    "Wrong input"
+                    "All numbers must be between 1 and 10")
     except ValueError as e:
-        print(f"\nInvalid data: {e}, please try again\n")
-        android_capture()
-            
-    update_survey_sheet()
+            print(f"\n {e} is not a number")
+    
 
     
 def android_capture():
