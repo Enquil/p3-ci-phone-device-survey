@@ -27,6 +27,9 @@ def ask_os():
     elif action == "2":
         print("goodbye")
 
+def update_survey_sheet():
+    print("updating sheet")
+    
         
 def validate_data(values):
     """
@@ -44,7 +47,8 @@ def validate_data(values):
     except ValueError as e:
         print(f"\nInvalid data: {e}, please try again\n")
         android_capture()
-        
+            
+    update_survey_sheet()
 
     
 def android_capture():
@@ -61,7 +65,15 @@ def android_capture():
     validate_data(survey_data)   
 
 #def select_comparison():
-#def ask_pass():
+def ask_pass():
+    from secret import pwd as pwd
+    password = input("Input Password: \n")
+    if password == pwd:
+        return True
+    else:
+        print("Invalid")
+        ask_pass()
+          
 
        
 def select_function():
@@ -69,13 +81,16 @@ def select_function():
     Let user select an action
     """
     print("\n Please choose an action:\n"
-            "\n 1. Input customer survey data\n"
-            " 2. Compare data\n")
+            "\n 1. Input Android survey data\n"
+            " 2. Input iPhone survey data\n"
+            " 3. Compare survey data\n")
     action = input("Please input desired action, "
                     "then press enter: \n")    
     if action == "1":
         android_capture()
     elif action == "2":
+        iphone_capture()
+    elif action == "3":
         select_comparison()
     else:
         print("\nInvalid action, try again!")
