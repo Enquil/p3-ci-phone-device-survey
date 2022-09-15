@@ -23,10 +23,22 @@ def ask_os():
     action = input("Please input desired action, "
                     "then press enter: \n")    
     if action == "1":
-        print("hello")
+        android_capture()
     elif action == "2":
         print("goodbye")
+
     
+def android_capture():
+    """
+    Captures android device survey data
+    """
+    print("Please enter survey data as follows\n"
+                "(Overall) (Design)(Ease of use) (Camera) (Battery) (Same device brands) (Would switch)\n"
+                "\n(Same device brands) and (Would switch) 'booleans' are represented as 1 or 0 depending if yes or no")
+    survey_str= input("Please input survey data values, "
+                    "then press enter: \n")
+    survey_data = survey_str.split(",")
+    print
         
 def select_function():
     """
@@ -40,7 +52,7 @@ def select_function():
     if action == "1":
         ask_os()
     elif action == "2":
-        choose_comparion()
+        select_comparion()
     else:
         print("Invalid input, try again")
     main()
