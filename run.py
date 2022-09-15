@@ -18,9 +18,18 @@ def update_survey_sheet(values):
     print("Select Phone Operating System:\n"
           "1. Android\n"
           "2. iOS")
-    input("Please input corresponding number: \n")
-    print("Updating sheet...")
-    print(values)    
+    
+    os = input("Please input corresponding number: \n")
+    
+    try:
+        if os == "1":
+            print("Android")
+        elif os == "2":
+            print("iOS")
+    except ValueError as e:
+            print(f"\n {e} is not a valid option")
+    update_survey_sheet(values)
+            
     
         
 def validate_data(values):
