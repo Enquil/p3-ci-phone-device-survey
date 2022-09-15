@@ -70,10 +70,8 @@ def select_function():
     action = input("Please input desired action, "
                     "then press enter: \n")    
     if action == "1":
-        android_capture()
+        survey_capture()
     elif action == "2":
-        iphone_capture()
-    elif action == "3":
         select_comparison()
     else:
         print("\nInvalid action, try again!")
