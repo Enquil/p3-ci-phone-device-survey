@@ -16,9 +16,11 @@ SHEET = GSPREAD_CLIENT.open("phonedevice_survey_sheet")
 def update_survey_sheet(values):
     print(values)
     print("Select Phone Operating System:\n"
-          "1. Android"
+          "1. Android\n"
           "2. iOS")
-    input("Please input corresponding number: \n")    
+    input("Please input corresponding number: \n")
+    print("Updating sheet...")
+    print(values)    
     
         
 def validate_data(values):
@@ -27,7 +29,7 @@ def validate_data(values):
     and validate wether input was correctly
     formatted
     """
-
+    
     try:
         for value in values:
             
@@ -41,7 +43,8 @@ def validate_data(values):
             print(f"\n {e} is not a number")    
             survey_capture()
     update_survey_sheet(values)
-    
+
+
 def survey_capture():
     """
     Captures android device survey data
