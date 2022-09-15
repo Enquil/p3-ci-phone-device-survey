@@ -27,19 +27,43 @@ def ask_os():
     elif action == "2":
         print("goodbye")
 
+        
+def validate_data(values):
+    """
+    converts survey onput to ints
+    and validates wether input was correctly
+    formatted
+    """
+    try:
+        [int(value) for value in values]
+        print(values)
+        if len(values) != 7:
+            raise ValueError (
+                f"\n7 values required, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"\nInvalid data: {e}, please try again\n")
+        android_capture()
+        
+
     
 def android_capture():
     """
     Captures android device survey data
     """
-    print("Please enter survey data as follows\n"
-                "(Overall) (Design)(Ease of use) (Camera) (Battery) (Same device brands) (Would switch)\n"
+    print("Please enter survey data as follows: 10,10,10,10,10,1/0,1/0\n"
+                "(Overall) (Design) (Ease of use) (Camera) (Battery) (Same device brands) (Would switch)\n"
                 "\n(Same device brands) and (Would switch) 'booleans' are represented as 1 or 0 depending if yes or no")
-    survey_str= input("Please input survey data values, "
+    survey_str = input("Please input survey data values, "
                     "then press enter: \n")
     survey_data = survey_str.split(",")
-    print
-        
+    
+    validate_data(survey_data)   
+
+#def select_comparison():
+#def ask_pass():
+
+       
 def select_function():
     """
     Let user select an action
@@ -50,11 +74,11 @@ def select_function():
     action = input("Please input desired action, "
                     "then press enter: \n")    
     if action == "1":
-        ask_os()
+        android_capture()
     elif action == "2":
-        select_comparion()
+        select_comparison()
     else:
-        print("Invalid input, try again")
+        print("\nInvalid action, try again!")
     main()
         
 def main():
