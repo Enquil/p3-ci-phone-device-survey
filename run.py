@@ -95,6 +95,12 @@ def select_comparison():
     Get all data from specified column and
     calculate average score.
     """
+    print("\n\033[0;37;40mCategories:\n"
+          "\n 1. Battery\n"
+          " 2. Camera\n"
+          " 3. Design\n"
+          " 4. User friendliness\n"
+          " 5. Overall\n")
     comparison_data = input("Select a category to compare: \n")
     if comparison_data == "1":
         android_list = SHEET.worksheet("android").col_values(1)
@@ -105,10 +111,56 @@ def select_comparison():
         iphone_int= [int(value) for value in iphone_list]
         android_value = sum(android_int) / len(android_int)
         iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\nAndroid users have a BATTERY score of:\033[1;36;40m {android_value}\033[0;37;40m\n" 
-              f"While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        print(f"\n Android users have a \033[1;35;40mBATTERY\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
+                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+    elif comparison_data == "2":
+        android_list = SHEET.worksheet("android").col_values(2)
+        iphone_list = SHEET.worksheet("iphone").col_values(2)
+        android_list.pop(0)
+        iphone_list.pop(0)
+        android_int = [int(value) for value in android_list]
+        iphone_int= [int(value) for value in iphone_list]
+        android_value = sum(android_int) / len(android_int)
+        iphone_value = sum(iphone_int) / len(iphone_int)
+        print(f"\n Android users have a \033[1;35;40mCAMERA\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
+                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+
+    elif comparison_data == "3":
+        android_list = SHEET.worksheet("android").col_values(3)
+        iphone_list = SHEET.worksheet("iphone").col_values(3)
+        android_list.pop(0)
+        iphone_list.pop(0)
+        android_int = [int(value) for value in android_list]
+        iphone_int= [int(value) for value in iphone_list]
+        android_value = sum(android_int) / len(android_int)
+        iphone_value = sum(iphone_int) / len(iphone_int)
+        print(f"\n Android users have a \033[1;35;40mDESIGN\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
+                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+    elif comparison_data == "4":
+        android_list = SHEET.worksheet("android").col_values(4)
+        iphone_list = SHEET.worksheet("iphone").col_values(4)
+        android_list.pop(0)
+        iphone_list.pop(0)
+        android_int = [int(value) for value in android_list]
+        iphone_int= [int(value) for value in iphone_list]
+        android_value = sum(android_int) / len(android_int)
+        iphone_value = sum(iphone_int) / len(iphone_int)
+        print(f"\n Android users have a \033[1;35;40mUSER FRIENDLINESS\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
+                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+    elif comparison_data == "5":
+        android_list = SHEET.worksheet("android").col_values(5)
+        iphone_list = SHEET.worksheet("iphone").col_values(5)
+        android_list.pop(0)
+        iphone_list.pop(0)
+        android_int = [int(value) for value in android_list]
+        iphone_int= [int(value) for value in iphone_list]
+        android_value = sum(android_int) / len(android_int)
+        iphone_value = sum(iphone_int) / len(iphone_int)
+        print(f"\n Android users have a \033[1;35;40mOVERALL\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
+                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
     else:
-        print("meow")
+        print(" \n\033[1;31;40mNot a valid input, please enter a number between 1-5\033[1;37;40m")
+        select_comparison()
 
 
 def select_function():
@@ -125,7 +177,7 @@ def select_function():
     elif action == "2":
         select_comparison()
     else:
-        print("\nInvalid action, try again!")
+        print("\n Invalid action, try again!")
     main()
         
 def main():
