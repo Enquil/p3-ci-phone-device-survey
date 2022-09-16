@@ -79,4 +79,26 @@
 
 Ran it through the pep8 validator a couple of times during developement, lots of indentation and whitespace errors, all errors are resolved now
 
+
 ![testing](assets/pep8.png)
+
+
+## Deployment
+---
+
+  * Made sure creds.json was not included in upload to github
+  * Created requirements.txt containing dependencies that are needed by Heroku
+  * In Heroku, chose "create new app", in the next window i named it and selected "Create app"
+  * Chos app name and region
+  * Wen to settings
+  * Set config var named CREDS to contain the creds.json data and copied it into the var.
+  * Next I selected the "Key" input field and typed in "CREDS" as the key, populated the var with creds data.
+  * Added port 8000 as a constan
+  * Next I added the word "PORT" as another "Key" with "8000" as the "Value" and again clicked on the "Add" button.
+  * Clicked "add buildpack" and chose python and node.js, important to remember.
+  * Pressed deploy, chose Github as my "source" and connected to Github, chose manual deployment
+  * I then selected the "Deploy" tab on the top of the page.
+  * I then selected "Github" as my deployment method and clicked on the "Connect to Github" button.
+  * Next I searched for this app's repository in the "Connect to Github" section of the page and clicked on connect on order to connect the repository to this application.
+  * Chose manual deployment
+  * Once app was finished building, opened it and did some quick tests.
