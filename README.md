@@ -41,7 +41,7 @@
 ![select_function](assets/select_function.png)
  
 ### Input format & handling input errors
-* After selecting input phone survey data, prompts user to enter values from the surver, bad input will also be handled with error messages, as seen below.
+* After selecting input phone survey data, prompts user to enter values from the surver, bad input will also be handled with error messages.
 ![enter survey data](assets/input_error.png)
  
  
