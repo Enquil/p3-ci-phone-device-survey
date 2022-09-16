@@ -44,7 +44,6 @@
 * After selecting input phone survey data, prompts user to enter values from the surver, bad input will also be handled with error messages.
 ![enter survey data](assets/input_error.png)
  
- 
 ### Updating the survey sheet and selecting OS
 * If values are entered correctly, the data processor will prompt you to select the OS which the phone is using.
 ![selecting OS](assets/update_survey_sheet.png)
@@ -54,3 +53,14 @@
  * Reason for looping back to survey data input is, realistically, you will be doing a lot of them at the same time, saves 2 presses per survey.
 ![after submit](assets/update_survey_sheet.png)
 
+### Accessing restricted data
+* In order to access the sheet data, you need to give it a password.
+![selecting OS](assets/password_request.png)
+
+### Clearing the menu and accessing relevant data
+* As shown above, the password is not obfuscated on the screen, and that's why i chose to implement the clear() function.
+![selecting OS](assets/clear_console.png)
+
+### Retrieving and viewing chosen data
+* Shows comparison values as an average between all surveys, chose to highlight what data was being accessed and it's values to make the easier to read.
+![selecting OS](assets/recieve_data.png)
