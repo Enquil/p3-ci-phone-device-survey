@@ -45,7 +45,6 @@ def update_survey_sheet(values):
     update_survey_sheet(values)
 
 
-
 def validate_data(values):
     """
     Convert survey onput to integers
@@ -54,15 +53,15 @@ def validate_data(values):
 
     try:
         for value in values:
-            
+
             if int(value) >= 1 and int(value) <= 10:
                 continue
             else:
                 raise ValueError(
                     "Wrong input\n"
-                    "All numbers must be between 1 and 10")
+                    "All numbers must be a value between 1 and 10")
     except ValueError as e:
-            print(f"\n\033[1;31;40m {e} is not a number\033[0;37;40m")    
+            print(f"\n\033[1;31;40m {e} is not a number\033[0;37;40m")
             survey_capture()
 
     values = [int(value) for value in values]
@@ -74,15 +73,16 @@ def survey_capture():
     Captures android device survey data
     """
     print("\nPlease enter survey data as follows: 10,10,10,10,10\n"
-                "   (Battery) (Camera) (Design) (Ease of Use) (Overall)\n"
-            "\nInput values must be number between 1 and 10")
+          "   (Battery) (Camera) (Design) (Ease of Use) (Overall)\n"
+          "\nInput values must be a number between 1 and 10")
     survey_str = input("Please input survey data, "
-                    "then press enter: \n")
+                       "then press enter: \n")
     survey_data = survey_str.split(",")
 
     if len(survey_data) != 5:
         print(
-            f"\033[1;31;40m     5 values required, you provided {len(survey_data)}\033[0;37;40m"
+            "\033[1;31;40m     5 values required,"
+            f" you provided {len(survey_data)}\033[0;37;40m"
         )
         survey_capture()
     else:
@@ -99,31 +99,39 @@ def select_comparison():
           "\n 1. Battery\n"
           " 2. Camera\n"
           " 3. Design\n"
-          " 4. User friendliness\n"
+          " 4. User Friendliness\n"
           " 5. Overall\n")
     comparison_data = input("Select a category to compare: \n")
+
     if comparison_data == "1":
         android_list = SHEET.worksheet("android").col_values(1)
         iphone_list = SHEET.worksheet("iphone").col_values(1)
         android_list.pop(0)
         iphone_list.pop(0)
         android_int = [int(value) for value in android_list]
-        iphone_int= [int(value) for value in iphone_list]
-        android_value = sum(android_int) / len(android_int)
-        iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\n Android users have a \033[1;35;40mBATTERY\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
-                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        iphone_int = [int(value) for value in iphone_list]
+        android_value = round(sum(android_int) / len(android_int), 2)
+        iphone_value = round(sum(iphone_int) / len(iphone_int), 2)
+        print("\n Android users have a"
+              "\033[1;35;40m BATTERY\033[0;37;40m score of:\033[1;36;40m"
+              f" {android_value}\033[0;37;40m\n"
+              " While iphone users have a score of:\033[1;36;40m "
+              f"{iphone_value}\033[0;37;40m")
+
     elif comparison_data == "2":
         android_list = SHEET.worksheet("android").col_values(2)
         iphone_list = SHEET.worksheet("iphone").col_values(2)
         android_list.pop(0)
         iphone_list.pop(0)
         android_int = [int(value) for value in android_list]
-        iphone_int= [int(value) for value in iphone_list]
-        android_value = sum(android_int) / len(android_int)
-        iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\n Android users have a \033[1;35;40mCAMERA\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
-                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        iphone_int = [int(value) for value in iphone_list]
+        android_value = round(sum(android_int) / len(android_int), 2)
+        iphone_value = round(sum(iphone_int) / len(iphone_int), 2)
+        print("\n Android users have a"
+              "\033[1;35;40m CAMERA\033[0;37;40m score of:\033[1;36;40m"
+              f" {android_value}\033[0;37;40m\n"
+              " While iphone users have a score of:\033[1;36;40m "
+              f"{iphone_value}\033[0;37;40m")
 
     elif comparison_data == "3":
         android_list = SHEET.worksheet("android").col_values(3)
@@ -131,35 +139,49 @@ def select_comparison():
         android_list.pop(0)
         iphone_list.pop(0)
         android_int = [int(value) for value in android_list]
-        iphone_int= [int(value) for value in iphone_list]
-        android_value = sum(android_int) / len(android_int)
-        iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\n Android users have a \033[1;35;40mDESIGN\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
-                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        iphone_int = [int(value) for value in iphone_list]
+        android_value = round(sum(android_int) / len(android_int), 2)
+        iphone_value = round(sum(iphone_int) / len(iphone_int), 2)
+        print("\n Android users have a"
+              "\033[1;35;40m DESIGN\033[0;37;40m score of:\033[1;36;40m"
+              f" {android_value}\033[0;37;40m\n"
+              " While iphone users have a score of:\033[1;36;40m "
+              f"{iphone_value}\033[0;37;40m")
+
     elif comparison_data == "4":
         android_list = SHEET.worksheet("android").col_values(4)
         iphone_list = SHEET.worksheet("iphone").col_values(4)
         android_list.pop(0)
         iphone_list.pop(0)
         android_int = [int(value) for value in android_list]
-        iphone_int= [int(value) for value in iphone_list]
-        android_value = sum(android_int) / len(android_int)
-        iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\n Android users have a \033[1;35;40mUSER FRIENDLINESS\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
-                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        iphone_int = [int(value) for value in iphone_list]
+        android_value = round(sum(android_int) / len(android_int), 2)
+        iphone_value = round(sum(iphone_int) / len(iphone_int), 2)
+        print("\n Android users have a"
+              "\033[1;35;40m USER FRIENDLINESS\033[0;37;40m"
+              " score of:\033[1;36;40m"
+              f" {android_value}\033[0;37;40m\n"
+              " While iphone users have a score of:\033[1;36;40m "
+              f"{iphone_value}\033[0;37;40m")
+
     elif comparison_data == "5":
         android_list = SHEET.worksheet("android").col_values(5)
         iphone_list = SHEET.worksheet("iphone").col_values(5)
         android_list.pop(0)
         iphone_list.pop(0)
         android_int = [int(value) for value in android_list]
-        iphone_int= [int(value) for value in iphone_list]
-        android_value = sum(android_int) / len(android_int)
-        iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\n Android users have a \033[1;35;40mOVERALL\033[0;37;40m score of:\033[1;36;40m {android_value}\033[0;37;40m\n"
-                f" While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
+        iphone_int = [int(value) for value in iphone_list]
+        android_value = round(sum(android_int) / len(android_int), 2)
+        iphone_value = round(sum(iphone_int) / len(iphone_int), 2)
+        print("\n Android users have an"
+              "\033[1;35;40m OVERALL\033[0;37;40m score of:\033[1;36;40m"
+              f" {android_value}\033[0;37;40m\n"
+              " While iphone users have a score of:\033[1;36;40m "
+              f"{iphone_value}\033[0;37;40m")
+
     else:
-        print(" \n\033[1;31;40mNot a valid input, please enter a number between 1-5\033[1;37;40m")
+        print(" \n\033[1;31;40mNot a valid input, please enter a number"
+              " between 1-5\033[1;37;40m")
         select_comparison()
 
 
@@ -168,22 +190,24 @@ def select_function():
     Let user select an action
     """
     print("\n Please choose an action:\n"
-            "\n 1. Input Phone survey data\n"
-            " 2. Compare survey data\n")
+          "\n 1. Input Phone survey data\n"
+          " 2. Compare survey data\n")
     action = input("Please input corresponding number of desired action, "
-                    "then press enter: \n")
+                   "then press enter: \n")
     if action == "1":
         survey_capture()
     elif action == "2":
         select_comparison()
     else:
-        print("\n\033[1;31;40m Not a valid input, choose a number between 1-2 \033[0;37;40m")
+        print("\n\033[1;31;40m Not a valid input,"
+              " choose a number between 1-2 \033[0;37;40m")
     main()
-        
+
+
 def main():
     """
     Runs all program functions
     """
     select_function()
-    
+
 main()
