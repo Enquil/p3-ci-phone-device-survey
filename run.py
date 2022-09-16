@@ -105,8 +105,8 @@ def select_comparison():
         iphone_int= [int(value) for value in iphone_list]
         android_value = sum(android_int) / len(android_int)
         iphone_value = sum(iphone_int) / len(iphone_int)
-        print(f"\nAndroid users have a BATTERY score of: {android_value}\n" 
-              f"While iphone users have a score of: {iphone_value}")
+        print(f"\nAndroid users have a BATTERY score of:\033[1;36;40m {android_value}\033[0;37;40m\n" 
+              f"While iphone users have a score of:\033[1;36;40m {iphone_value}\033[0;37;40m")
     else:
         print("meow")
 
