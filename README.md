@@ -102,3 +102,16 @@ Ran it through the pep8 validator a couple of times during developement, lots of
   * Next I searched for this app's repository in the "Connect to Github" section of the page and clicked on connect on order to connect the repository to this application.
   * Chose manual deployment
   * Once app was finished building, opened it and did some quick tests.
+
+
+## Bugs
+---
+
+* No actual bugs found, but there is alot of refactoring that can be done, especially the select_comparison function that fetches google sheet data and presents it.
+* There should be "back navigation", i wanted to make it very simple to use, but it is VERY simple right now
+
+## Credits
+---
+
+Thank you Code Institute and Joao4569 for code snippets mentioned in source code
+Thank you to my mentor Anthony at Code Institute for solid advice as per usual.
