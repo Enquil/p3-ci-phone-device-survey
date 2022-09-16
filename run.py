@@ -96,15 +96,19 @@ def select_comparison():
     calculate average score.
     """
     comparison_data = input("Select a category to compare: \n")
-    
-    if comparison_data == 1:
-        x = [item for item in worksheet.col_values(1) if item]
-        print(x)
-    elif comparison_data == 2:
-    elif comparison_data == 3: 
-    elif comparison_data == 4: 
-    elif comparison_data == 5: 
-    else:     
+    if comparison_data == "1":
+        android_list = SHEET.worksheet("android").col_values(1)
+        iphone_list = SHEET.worksheet("iphone").col_values(1)
+        android_list.pop(0)
+        iphone_list.pop(0)
+        android_int = [int(value) for value in android_list]
+        iphone_int= [int(value) for value in iphone_list]
+        android_value = sum(android_int) / len(android_int)
+        iphone_value = sum(iphone_int) / len(iphone_int)
+        print(f"\nAndroid users have a BATTERY score of: {android_value}\n" 
+              f"While iphone users have a score of: {iphone_value}")
+    else:
+        print("meow")
 
 
 def select_function():
