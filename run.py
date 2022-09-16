@@ -1,5 +1,5 @@
 # Import os used with clear() function, sourced from www.geeksforgeeks.org/
-# Special thanks to Joao4569.
+# Special thanks to Joao4569 and my mentor Anthony
 
 from os import system, name
 

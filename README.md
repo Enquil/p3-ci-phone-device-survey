@@ -1,31 +1,36 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# p3-ci-phone-device-survey (Survey Data Processor)
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Content
+---
 
-## Reminders
+* [Planning and making a Flowchart](#Planning and making a flowchart)
+* [Resources and Technologies](#Resources Used)
+* [The Data Processor](The Data Processor)
+* [The Data Model](The Data Model)
+* [Testing](Testing)
+* [Deployment](Deployment)
+* [Bugs](Bugs)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+## Planning and making a Flowchart
+---
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+* After a couple of botched ideas and a session with my mentor, i settled on making a survey that compares the satisfaction of Android vs iPhone users.
+* I started by making  a general idea of what sort of functions one could want from a survey data processor, and then made a flowchart as seen below
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Resources and Technologies
+---
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* Heroku
+* Github
+* Python
+* Code Institute Template
+* Google Sheets / Google cloud console
+  * Connected via Google API's and Gspread 
+* Lucidchart
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+## The Data Processor
+---
