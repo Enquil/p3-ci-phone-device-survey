@@ -64,3 +64,10 @@
 ### Retrieving and viewing chosen data
 * Shows comparison values as an average between all surveys, highlighted relevant data.
 ![selecting OS](assets/recieve_data.png)
+
+
+## The data model
+---
+
+* Simple google sheets, at the moment is also used to store valid passwords, not great and will be substituted for the getpass() method.
+![selecting OS](assets/data_model.png)
