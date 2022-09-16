@@ -72,3 +72,10 @@
 
 * Simple google sheets, at the moment is also used to store valid passwords, not great and will be substituted for the getpass() method.
 ![selecting OS](assets/data_model.png)
+
+
+## Testing
+---
+
+Ran it through the pep8 validator a couple of times during developement, lots of indentation and whitespace errors, all errors are resolved now
+![selecting OS](assets/pep8.png)
