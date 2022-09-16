@@ -36,5 +36,21 @@
 ---
 
 ### Select desired function to execute
-* First screen that you will see is a menu with 2 options, capture survey data to the worksheet, and comparing survey data
- ![select_function](assets/select_function.png)
+
+* First screen that you will see is a menu with 2 options, capture survey data to the worksheet, and comparing survey data.
+![select_function](assets/select_function.png)
+ 
+### Input format & handling input errors
+* After selecting input phone survey data, prompts user to enter values from the surver, bad input will also be handled with error messages, as seen below.
+![enter survey data](assets/input_error.png)
+ 
+ 
+### Updating the survey sheet and selecting OS
+* If values are entered correctly, the data processor will prompt you to select the OS which the phone is using.
+![selecting OS](assets/update_survey_sheet.png)
+
+### When the data has been sent
+* When you've selected an OS, the data will be sent to a worksheet that matches the selected OS, and then return you to enter new survey data.
+ * Reason for looping back to survey data input is, realistically, you will be doing a lot of them at the same time, saves 2 button presses per survey.
+![after submit](assets/update_survey_sheet.png)
+
