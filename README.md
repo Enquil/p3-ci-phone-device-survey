@@ -113,5 +113,5 @@ Ran it through the pep8 validator a couple of times during developement, lots of
 ## Credits
 ---
 
-Thank you Code Institute and Joao4569 for code snippets mentioned in source code
-Thank you to my mentor Anthony at Code Institute for solid advice as per usual.
+* Thank you Code Institute and Joao4569 for code snippets mentioned in source code,
+* Thank you to my mentor Anthony at Code Institute for solid advice as per usual.
