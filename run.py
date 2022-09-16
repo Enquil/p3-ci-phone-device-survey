@@ -75,7 +75,7 @@ def validate_data(values):
     Validate wether input format was correct.
     """
 
-    try:
+    try:        # Thank you Joao4569 for making me realize i needed to reverse my function here
         for value in values:
 
             if int(value) >= 1 and int(value) <= 10:
