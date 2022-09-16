@@ -197,11 +197,24 @@ def select_function():
     if action == "1":
         survey_capture()
     elif action == "2":
-        select_comparison()
+        check_pass()
     else:
         print("\n\033[1;31;40m Not a valid input,"
               " choose a number between 1-2 \033[0;37;40m")
     main()
+
+def check_pass():
+    """
+    Requests password when accessing comparison data
+    """
+    worksheet = SHEET.worksheet("admin")
+    psw =  worksheet.acell('A1').value
+    user_pw = input("Please enter password: \n")
+    if psw == user_pw:
+        select_comparison()
+    else:
+        print("\n\033[1;31;40m Not a valid input,"
+              " choose a number between 1-2 \033[0;37;40m")
 
 
 def main():
