@@ -33,10 +33,4 @@
 
 
 ## The Data Processor
-<<<<<<< HEAD
----
-=======
----
 
-
->>>>>>> acc1251899f38c31fe8d1ab44635aa88ce6c6353
