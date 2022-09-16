@@ -51,6 +51,6 @@
 
 ### When the data has been sent
 * When you've selected an OS, the data will be sent to a worksheet that matches the selected OS, and then return you to enter new survey data.
- * Reason for looping back to survey data input is, realistically, you will be doing a lot of them at the same time, saves 2 button presses per survey.
+ * Reason for looping back to survey data input is, realistically, you will be doing a lot of them at the same time, saves 2 presses per survey.
 ![after submit](assets/update_survey_sheet.png)
 
