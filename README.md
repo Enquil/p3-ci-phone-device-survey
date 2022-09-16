@@ -34,3 +34,7 @@
 
 ## The Data Processor
 ---
+
+### Select desired function to execute
+* First screen that you will see is a menu with 2 options, capture survey data to the worksheet, and comparing survey data
+ ![select_function](assets/select_function.png)
