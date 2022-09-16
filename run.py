@@ -170,14 +170,14 @@ def select_function():
     print("\n Please choose an action:\n"
             "\n 1. Input Phone survey data\n"
             " 2. Compare survey data\n")
-    action = input("Please input desired action, "
-                    "then press enter: \n")    
+    action = input("Please input corresponding number of desired action, "
+                    "then press enter: \n")
     if action == "1":
         survey_capture()
     elif action == "2":
         select_comparison()
     else:
-        print("\n Invalid action, try again!")
+        print("\n\033[1;31;40m Not a valid input, choose a number between 1-2 \033[0;37;40m")
     main()
         
 def main():
