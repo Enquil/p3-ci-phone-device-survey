@@ -62,5 +62,5 @@
 ![selecting OS](assets/clear_console.png)
 
 ### Retrieving and viewing chosen data
-* Shows comparison values as an average between all surveys, chose to highlight what data was being accessed and it's values to make the easier to read.
+* Shows comparison values as an average between all surveys, highlighted relevant data.
 ![selecting OS](assets/recieve_data.png)
