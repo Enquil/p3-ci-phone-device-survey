@@ -1,4 +1,13 @@
+# Import os used with clear() function, sourced from www.geeksforgeeks.org/
+# Special thanks to Joao4569.
+
+from os import system, name
+
+# Sourced from Code Institute.
+# Adds api and constants for google drive and spereadsheets.
+
 import gspread
+from os import system, name
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -13,11 +22,26 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("phone_device_survey_sheet")
 
 
+def clear():
+    """
+    This is a function sourced from
+    https://www.geeksforgeeks.org/clear-screen-python/
+    Clears terminal window.
+    """
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
+
 def update_survey_sheet(values):
     """
-    Choose operating system for current survey sheet.
-    Print error message if wrong input and request new input.
-    Loop back to survey_capture after successful input.
+    Choose phone operating system for current survey sheet.
+    Prints error message if wrong input and request new input.
+    Loops back to survey_capture after successful input.
     """
     print("Select Phone Operating System:\n"
           "1. Android\n"
@@ -47,8 +71,8 @@ def update_survey_sheet(values):
 
 def validate_data(values):
     """
-    Convert survey onput to integers
-    Validate wether input format was correct
+    Convert survey onput to integers.
+    Validate wether input format was correct.
     """
 
     try:
@@ -70,7 +94,7 @@ def validate_data(values):
 
 def survey_capture():
     """
-    Captures android device survey data
+    Captures android device survey data.
     """
     print("\nPlease enter survey data as follows: 10,10,10,10,10\n"
           "   (Battery) (Camera) (Design) (Ease of Use) (Overall)\n"
@@ -91,10 +115,11 @@ def survey_capture():
 
 def select_comparison():
     """
-    Compare data between Android and Iphone
-    Get all data from specified column and
-    calculate average score.
+    Compare data between Android and Iphone.
+    Get all data from specified column and.
+    Calculates average score and round to 2 decimals.
     """
+    # This needs to be refactored
     print("\n\033[0;37;40mCategories:\n"
           "\n 1. Battery\n"
           " 2. Camera\n"
@@ -187,7 +212,8 @@ def select_comparison():
 
 def select_function():
     """
-    Let user select an action
+    Lets user select between entering survey data and accessing comparisons.
+    Comparison function is password protected.
     """
     print("\n Please choose an action:\n"
           "\n 1. Input Phone survey data\n"
@@ -203,18 +229,21 @@ def select_function():
               " choose a number between 1-2 \033[0;37;40m")
     main()
 
+
 def check_pass():
     """
-    Requests password when accessing comparison data
+    Requests password when accessing comparison data.
+    Clears screen in order to hide password.
     """
     worksheet = SHEET.worksheet("admin")
-    psw =  worksheet.acell('A1').value
+    psw = worksheet.acell('A1').value
     user_pw = input("Please enter password: \n")
     if psw == user_pw:
+        clear()
         select_comparison()
     else:
-        print("\n\033[1;31;40m Not a valid input,"
-              " choose a number between 1-2 \033[0;37;40m")
+        clear()
+        print("\n\033[1;31;40m Incorrect password \033[0;37;40m")
 
 
 def main():
