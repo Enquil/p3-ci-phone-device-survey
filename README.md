@@ -17,7 +17,8 @@
 ---
 
 * After a couple of botched ideas and a session with my mentor, i settled on making a survey that compares the satisfaction of Android vs iPhone users.
-* I started by making  a general idea of what sort of functions one could want from a survey data processor, and then made a flowchart as seen below
+* I started by making a general idea of what sort of functions one could want from a survey data processor, and then made a flowchart as seen below
+![Retrieving ](assets/flowchart.png)
 
 
 ## Resources and Technologies
@@ -55,15 +56,15 @@
 
 ### Accessing restricted data
 * In order to access the sheet data, you need to give it a password.
-![selecting OS](assets/password_request.png)
+![restricted data](assets/password_request.png)
 
 ### Clearing the menu and accessing relevant data
 * As shown above, the password is not obfuscated on the screen, and that's why i chose to implement the clear() function.
-![selecting OS](assets/clear_console.png)
+![clear menu](assets/clear_console.png)
 
 ### Retrieving and viewing chosen data
 * Shows comparison values as an average between all surveys, highlighted relevant data.
-![selecting OS](assets/recieve_data.png)
+![Retrieving data](assets/recieve_data.png)
 
 
 ## The data model
